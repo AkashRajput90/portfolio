@@ -1,0 +1,17 @@
+---
+- name: Deploy React app to AKS
+  hosts: localhost
+  tasks:
+    - name: Authenticate with Azure
+      shell: az aks get-credentials --resource-group <resource-group> --name <aks-cluster-name>
+      register: result
+
+    - name: Apply Kubernetes deployment
+      command: kubectl apply -f deployment.yaml
+      args:
+        chdir: ../k8s
+
+    - name: Apply Kubernetes service
+      command: kubectl apply -f service.yaml
+      args:
+        chdir: ../k8s
