@@ -1,17 +1,12 @@
 ---
-- name: Deploy React app to AKS
+- name: Deploy to AKS
   hosts: all
   tasks:
-    - name: Authenticate with Azure
-      shell: az aks get-credentials --resource-group appgroup --name aksapp
-      register: result
-
     - name: Apply Kubernetes deployment
-      command: kubectl apply -f deployment.yaml
-      args:
-        chdir: ../k8s
-
+      community.kubernetes.k8s:
+        kubeconfig: ~/.kube/config
+        definition: "{{ lookup('file', '../k8s/k8s-deployment.yml') }}"
     - name: Apply Kubernetes service
-      command: kubectl apply -f service.yaml
-      args:
-        chdir: ../k8s
+      community.kubernetes.k8s:
+        kubeconfig: ~/.kube/config
+        definition: "{{ lookup('file', '../k8s/k8s-service.yml') }}"
