@@ -6,10 +6,9 @@
     - name: Apply Kubernetes deployment
       kubernetes.core.k8s:
         kubeconfig: ~/.kube/config
-        definition: "{{ lookup('file', 'k8s/deployment.yml') }}"
+        definition: "{{ lookup('file', '../k8s/deployment.yml') }}"
 
     - name: Apply Kubernetes service
       kubernetes.core.k8s:
         kubeconfig: ~/.kube/config
-        definition: "{{ lookup('file', 'k8s/service.yml') }}"
- 
+        definition: "{{ lookup('file', '../k8s/service.yml') }}"
