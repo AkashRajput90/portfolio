@@ -1,9 +1,9 @@
 ---
 - name: Deploy React app to AKS
-  hosts: localhost
+  hosts: all
   tasks:
     - name: Authenticate with Azure
-      shell: az aks get-credentials --resource-group <resource-group> --name <aks-cluster-name>
+      shell: az aks get-credentials --resource-group appgroup --name aksapp
       register: result
 
     - name: Apply Kubernetes deployment
