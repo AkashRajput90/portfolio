@@ -52,4 +52,4 @@ jobs:
       run: ansible-galaxy collection install community.kubernetes
 
     - name: Deploy to AKS using Ansible
-      run: ansible-playbook ansible/deploy_to_aks.yml -i localhost,
+      run: ansible-playbook ansible/deploy_to_aks.yml -i localhost, -vvvv
