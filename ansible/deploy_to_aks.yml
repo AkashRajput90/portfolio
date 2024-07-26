@@ -1,6 +1,7 @@
 ---
 - name: Deploy to AKS
   hosts: localhost
+  connection: local
   tasks:
     - name: Apply Kubernetes deployment
       kubernetes.core.k8s:
