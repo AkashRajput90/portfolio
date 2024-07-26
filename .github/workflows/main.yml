@@ -48,8 +48,8 @@ jobs:
     - name: Install Ansible
       run: sudo apt-get update && sudo apt-get install -y ansible
 
-    - name: Install Ansible Collections
-      run: ansible-galaxy collection install community.kubernetes
+    - name: Install Python Kubernetes library
+      run: pip install kubernetes
 
     - name: Deploy to AKS using Ansible
       run: ansible-playbook ansible/deploy_to_aks.yml -i localhost, -vvvv
