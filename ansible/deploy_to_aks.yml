@@ -12,3 +12,4 @@
       kubernetes.core.k8s:
         kubeconfig: ~/.kube/config
         definition: "{{ lookup('file', 'k8s/service.yml') }}"
+ 
