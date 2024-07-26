@@ -46,7 +46,8 @@ jobs:
     - name: Get AKS credentials
       run: az aks get-credentials --resource-group appgroup --name aksapp
 
+    - name: Install Ansible
+      run: sudo apt-get update && sudo apt-get install -y ansible
+
     - name: Deploy to AKS using Ansible
-      uses: robertdebock/ansible-playbook-action@v1.0.1
-      with:
-        playbook: ansible/deploy_to_aks.yml
+      run: ansible-playbook ansible/deploy_to_aks.yml
