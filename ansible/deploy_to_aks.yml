@@ -1,12 +1,13 @@
 ---
 - name: Deploy to AKS
-  hosts: all
+  hosts: localhost
   tasks:
     - name: Apply Kubernetes deployment
       community.kubernetes.k8s:
         kubeconfig: ~/.kube/config
-        definition: "{{ lookup('file', '../k8s/k8s-deployment.yml') }}"
+        definition: "{{ lookup('file', 'k8s/k8s-deployment.yml') }}"
+
     - name: Apply Kubernetes service
       community.kubernetes.k8s:
         kubeconfig: ~/.kube/config
-        definition: "{{ lookup('file', '../k8s/k8s-service.yml') }}"
+        definition: "{{ lookup('file', 'k8s/k8s-service.yml') }}"
