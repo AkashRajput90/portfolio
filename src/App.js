@@ -5,7 +5,7 @@ import './App.css';
 const Home = () => (
   <div className="section home">
     <h1 className="header">Welcome to My Portfolio</h1>
-    <p className="intro">Hi, I'm [Your Name], a [Your Profession]. Explore my work and get to know me better.</p>
+    <p className="intro">Hi, I'm Akash Manhas, a devops, prompt engineer and good with most of the web development. Explore my work and get to know me better.</p>
   </div>
 );
 
